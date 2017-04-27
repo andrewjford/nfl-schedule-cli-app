@@ -1,13 +1,14 @@
 class Team
-  attr_accessor :name
+  attr_accessor :name,:schedule_url
 
   @@all_teams = []
 
   def self.create(name)
-    unless @@all_teams.detect{|team| team.name == name}
+    #unless @@all_teams.detect{|team| team.name == name}
       new_team = Team.new(name)
       @@all_teams << new_team
-    end
+      new_team
+    #end
   end
 
   def self.all_teams
