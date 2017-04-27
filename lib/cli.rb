@@ -2,7 +2,11 @@ class CLI
 
   def run
     puts "Welcome."
-    Scraper.scrape_for_teams("http://www.cbssports.com/nfl/teams")
+    Scraper.add_teams("http://www.cbssports.com/nfl/teams")
+    Team.all_teams.each do |team|
+      Scraper.add_schedule(team)
+      puts "loading... #{team.name}"
+    end
     self.main
   end
 
@@ -52,7 +56,9 @@ class CLI
     while running
       print "Enter a team number to see that team's schedule: "
       input = gets.chomp
-      if input.to_i >= 0 && input.to_i < Team.all_teams.length
+      if input == "n"
+        running = false
+      elsif input.to_i >= 0 && input.to_i < Team.all_teams.length
         puts Team.all_teams[input.to_i-1].schedule
       else
         running = false

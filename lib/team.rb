@@ -1,5 +1,5 @@
 class Team
-  attr_accessor :name,:schedule_url
+  attr_accessor :name,:team_url,:schedule
 
   @@all_teams = []
 
