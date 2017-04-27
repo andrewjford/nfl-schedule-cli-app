@@ -14,9 +14,9 @@ class CLI
     while running
 
       if prev_input.to_i > 0 && prev_input.to_i <= Team.all_teams.length
-        print "AFC teams (a), NFC teams(n), team schedules(1-32), headlines(h), exit(x): "
+        print "AFC teams(a), NFC teams(n), team schedules(1-32), headlines(h), exit(x): "
       else
-        print "AFC teams (a), NFC teams(n), team schedules(1-32), exit(x): "
+        print "AFC teams(a), NFC teams(n), team schedules(1-32), exit(x): "
       end
 
       input = gets.chomp
@@ -48,6 +48,7 @@ class CLI
 
   def print_afc
     puts ""
+    puts "AFC"
     for index in (0..15)
       puts "#{index+1}. #{Team.all_teams[index].name}"
     end
@@ -56,6 +57,7 @@ class CLI
 
   def print_nfc
     puts ""
+    puts "NFC"
     for index in (16..31)
       puts "#{index+1}. #{Team.all_teams[index].name}"
     end
@@ -68,6 +70,8 @@ class CLI
 
     puts ""
     puts "#{team.name} - Schedule"
+    puts "Date        Time          Opponent"
+    puts "----------------------------------"
     team.schedule.each do |game|
       date_formatted = self.set_format(game.date,10)
       time_formatted = self.set_format(game.time,12,false)
