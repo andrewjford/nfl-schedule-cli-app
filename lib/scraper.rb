@@ -39,8 +39,14 @@ class Scraper
       time = row.css('.gameDateTime > div > span:first-child').text
       opp = row.css('.gameMatchup').text
       team.schedule << Game.new(date,time,opp)
-      binding.pry
     end
+  end
+
+  def self.scrape_headlines(team_url)
+    #scrapes team url and returns headline data
+    doc2 = Nokogiri::HTML(open(team_url))
+    headlines = doc2.css("#atrero div.ssItemCtr > div.titleContent")
+    headlines.collect {|headline| headline.text}
   end
 
 end

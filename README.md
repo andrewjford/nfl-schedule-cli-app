@@ -7,6 +7,4 @@ Instructions to run:
 
 Using the app:
 
-The first prompt of the app asks for an NFL conference. The user can respond with 'a' to get a list of AFC teams or 'n' to get a list of NFC teams. Each team has an associated number when listed. Entering 'c' takes the user to the second section of the app.
-
-The second prompt of the app accepts any number '1' to '32' or 'n'. The numbers refer to the team numbers from the previous team listings. Entering a number will bring up that team's current schedule. An input of 'n' will exit this menu.
+All parts of the app are accessible through the initial prompt. The user can respond with 'a' to get a list of AFC teams or 'n' to get a list of NFC teams. Each team has an associated number when listed. If a number from '1' to '32' is entered, that will bring up the corresponding team's current schedule. Entering 'h' will display a team's recent headlines based on the team schedule that was previously displayed. An input of 'x' will exit the app.
