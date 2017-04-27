@@ -7,8 +7,8 @@ class Scraper
     team_rows.each do |row|
       team_name = row.css("td > a:first-child + a").text
 
-      #these elements we are looping through have blanks so
-      #only create teams with a name
+      #these elements we are looping through have blanks so only
+      #process rows with a team name
       if team_name != ""
         site = row.css("td > a:first-child + a + span > a:first-child").attribute("href").value
 
@@ -22,14 +22,6 @@ class Scraper
     #to complete
   end
 
-  def self.make_teams(url)
-    Scraper.scrape_for_teams(url).each do |team|
-      Team.create(team.text)
-    end
-  end
 
-  def self.make_schedules
-    #to complete
-  end
 
 end

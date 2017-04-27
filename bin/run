@@ -1,5 +1,3 @@
 require_relative '../config/environment'
 
 CLI.new.run
-
-#puts Scraper.scrape_for_teams("http://www.cbssports.com/nfl/teams")
