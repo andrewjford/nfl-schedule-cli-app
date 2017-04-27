@@ -1,3 +1,16 @@
 require_relative '../config/environment'
 
 puts "Welcome."
+Scraper.make_teams("http://www.cbssports.com/nfl/teams")
+
+#main loop
+
+running = true
+while running
+  Team.all_teams.each{|team| puts team.name}
+  print "Would you like to continue? (y/n): "
+  input = gets.chomp
+  if input == "n" || input == "N"
+    running = false
+  end
+end
