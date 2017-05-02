@@ -15,10 +15,18 @@ class Team
     @@all_teams
   end
 
+  def self.find_by_team_name(name)
+    @@all_teams.detect do |team|
+      team.name.downcase == name.downcase
+    end
+
+  end
+
   ### Instance methods ###
 
   def initialize(name)
     @name = name
   end
+
 
 end

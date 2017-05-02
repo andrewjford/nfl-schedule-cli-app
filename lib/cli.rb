@@ -5,6 +5,7 @@ class CLI
     puts "Enter (a) to list AFC teams, (n) to list NFC teams, (1-32) to get a team schedule, (h) to list a team's recent headlines, or (x) to exit: "
     puts ""
     Scraper.add_teams("http://www.cbssports.com/nfl/teams")
+
     self.main
   end
 
@@ -13,7 +14,7 @@ class CLI
     prev_input = nil
     while running
 
-      if prev_input.to_i > 0 && prev_input.to_i <= Team.all_teams.length
+      if prev_input.to_i.between?(1,Team.all_teams.length)
         print "AFC teams(a), NFC teams(n), team schedules(1-32), headlines(h), exit(x): "
       else
         print "AFC teams(a), NFC teams(n), team schedules(1-32), exit(x): "
